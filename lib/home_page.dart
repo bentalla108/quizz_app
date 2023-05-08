@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage(this.startQuiz, {super.key});
 
-  buttonclickAction() {
-    print("Im activated");
-  }
+  final void Function() startQuiz;
 
   @override
   Widget build(context) {
@@ -16,7 +14,7 @@ class HomePage extends StatelessWidget {
           child: Image.asset(
             'assets/images/quiz-logo.png',
             width: 300,
-            color: const Color.fromARGB(255, 172, 143, 223),
+            color: const Color.fromARGB(170, 172, 143, 223),
           ),
         ),
         const SizedBox(
@@ -34,7 +32,7 @@ class HomePage extends StatelessWidget {
         ),
         OutlinedButton.icon(
           style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
-          onPressed: buttonclickAction,
+          onPressed: startQuiz,
           label: const Text('Commencer le quizz'),
           icon: const Icon(Icons.arrow_right_alt),
         )
