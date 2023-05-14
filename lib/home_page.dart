@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,13 +21,11 @@ class HomePage extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const Text(
-          "Learn Flutter the fun way!",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
-        ),
+        Text("Learn Flutter the fun way!",
+            style: GoogleFonts.lato(
+              color: Colors.white,
+              fontSize: 20,
+            )),
         const SizedBox(
           height: 5,
         ),

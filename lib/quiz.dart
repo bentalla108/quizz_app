@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizz_app/data/questions.dart';
 import 'package:quizz_app/home_page.dart';
 import 'package:quizz_app/questions_screen.dart';
 
@@ -20,6 +21,7 @@ class _QuizSate extends State<Quiz> {
   // }
 
   var activeScreen = 'start-screen';
+  List<String> selectedAnswer = [];
 
   void switchScreen() {
     setState(() {
@@ -28,12 +30,23 @@ class _QuizSate extends State<Quiz> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswer.add(answer);
+    selectedAnswer.length == questions.length
+        ? setState(() {
+            // activeScreen = const QuestionsScreen();
+            activeScreen = 'start-screen';
+            selectedAnswer = [];
+          })
+        : null;
+  }
+
   @override
   Widget build(context) {
     Widget screenWidget = HomePage(switchScreen);
 
     if (activeScreen == 'questions-screen') {
-      screenWidget = const QuestionsScreen();
+      screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer);
     }
     return MaterialApp(
       home: Scaffold(
